@@ -916,7 +916,7 @@ if selected == "HRV Analysis":
                 values = [total_power, VLF, LF_norm, HF_norm]
                 
                 # Buat display values for the bar plot
-                display_values = [total_power*100, VLF*100, LF_norm * 100, HF_norm * 100]
+                display_values = [total_power*10, VLF*10, LF_norm * 100, HF_norm * 100]
                 
                 # Buat plot batang
                 fig = go.Figure()
