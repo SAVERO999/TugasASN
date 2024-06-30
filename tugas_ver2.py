@@ -907,7 +907,7 @@ if selected == "HRV Analysis":
                 st.plotly_chart(fig)
                 
                 categories = ['Total Power (TP)', 'VLF', 'LF', 'HF']
-                values = [total_power, VLF, LF_norm, HF_norm]
+                values = [total_power, VLF, LF_norm *100, HF_norm*100]
         
                 fig = go.Figure()
         
