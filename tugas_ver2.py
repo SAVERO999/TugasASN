@@ -909,7 +909,7 @@ if selected == "HRV Analysis":
                 ])
                 
                 # Tampilkan tabel
-                fig.show()
+                st.plotly_chart(fig)
                 
                 # Buat bar series
                 categories = ['Total Power (TP)', 'VLF', 'LF', 'HF']
