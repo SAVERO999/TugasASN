@@ -891,40 +891,51 @@ if selected == "HRV Analysis":
                )
                 st.plotly_chart(fig)
                 
+                # Buat DataFrame
                 data = {
-                "Metric": ["Total Power (TP)", "VLF", "LF", "HF", "LF/HF"],
-                "Value": [total_power, VLF, LF_norm, HF_norm, LF_HF]
+                    "Metric": ["Total Power (TP)", "VLF", "LF", "HF", "LF/HF"],
+                    "Value": [total_power, VLF, LF_norm, HF_norm, LF_HF]
                 }
                 df = pd.DataFrame(data)
-                fig = go.Figure(data=[go.Table(
-                  header=dict(values=list(df.columns),
-                        fill_color='paleturquoise',
-                        align='left'),
-                  cells=dict(values=[df.Metric, df.Value],
-                       fill_color='lavender',
-                       align='left'))
-                   ])
-                st.plotly_chart(fig)
                 
+                # Buat tabel menggunakan Plotly
+                fig = go.Figure(data=[go.Table(
+                    header=dict(values=list(df.columns),
+                                fill_color='paleturquoise',
+                                align='left'),
+                    cells=dict(values=[df.Metric, df.Value],
+                               fill_color='lavender',
+                               align='left'))
+                ])
+                
+                # Tampilkan tabel
+                fig.show()
+                
+                # Buat bar series
                 categories = ['Total Power (TP)', 'VLF', 'LF', 'HF']
-                values = [total_power, VLF, LF_norm *100, HF_norm*100]
-        
+                values = [total_power, VLF, LF_norm, HF_norm]
+                
+                # Buat display values for the bar plot
+                display_values = [total_power, VLF, LF_norm * 100, HF_norm * 100]
+                
+                # Buat plot batang
                 fig = go.Figure()
-        
+                
                 fig.add_trace(go.Bar(
-                x=categories,
-                y=values,
-                marker_color=['blue', 'orange', 'green', 'red']
+                    x=categories,
+                    y=display_values,
+                    marker_color=['blue', 'orange', 'green', 'red']
                 ))
-        
-               
+                
+                # Menambahkan judul dan label sumbu
                 fig.update_layout(
-                title='Bar Series dari VLF, LF, HF',
-                xaxis_title='Kategori',
-                yaxis_title='Nilai'
+                    title='Bar Series dari VLF, LF, HF',
+                    xaxis_title='Kategori',
+                    yaxis_title='Nilai'
                 )
+                
                 st.plotly_chart(fig)
-        
+
                 def determine_category(LF_norm, HF_norm, LF_HF):
                     if LF_norm < 0.2 and HF_norm < 0.2:
                         return 1  # Low - Low
