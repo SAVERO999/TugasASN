@@ -355,7 +355,7 @@ if selected == "Signal Processing":
         index=0
     )
     if selected1 == 'Information':
-        st.title("d")
+        st.title("Signal Processing")
     elif selected1 == 'Data & Graphic':
         st.title('Data & Graphic Input')
         st.header("Data Input")
