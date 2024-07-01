@@ -602,6 +602,17 @@ if selected == "HRV Analysis":
             yaxis=dict(showline=True, showgrid=True)
             )
             st.plotly_chart(fig)
+            
+            fig = go.Figure(data=go.Scatter(x=n, y=bpm_rr, mode='lines'))
+            fig.update_layout(
+                title="TACHOGRAM",
+                xaxis_title="n",
+                yaxis_title="BPM",
+                xaxis=dict(showline=True, showgrid=True),
+                yaxis=dict(showline=True, showgrid=True)
+            )
+            st.plotly_chart(fig)
+            
         elif selected3 == 'Segmentation':
              optimizer_options3 = ['', 'Data 0-50', 'Data 50-100', 'Data 101-151', 'Data 151-201','Data 201-251','Data 251-301','Data 301-351','FFT TOTAL']
              selected_optimizer3 = st.selectbox('Segmentation', optimizer_options3)
