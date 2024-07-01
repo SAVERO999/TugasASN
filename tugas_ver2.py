@@ -576,7 +576,7 @@ if selected == "HRV Analysis":
             )
             st.plotly_chart(fig)
             
-             fig = go.Figure(data=go.Histogram(x=bpm_rr, nbinsx=ptp))
+            fig = go.Figure(data=go.Histogram(x=bpm_rr, nbinsx=ptp))
             
             fig.update_layout(
                 title="Histogram Interval RR",
