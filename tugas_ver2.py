@@ -575,6 +575,12 @@ if selected == "HRV Analysis":
                 yaxis=dict(showline=True, showgrid=True)
             )
             st.plotly_chart(fig)
+            
+            fig = go.Figure()
+            fig.add_trace(go.Histogram(x=bpm_rr, nbinsx=ptp))
+            fig.update_layout(title='Histogram', xaxis_title='BPM', yaxis_title='Frequency')
+            fig.update_layout(xaxis=dict(range=[0, 100]), yaxis=dict(range=[0, 10]))
+            st.plotly_chart(fig)
 
 
         if selected2 == "Information":
