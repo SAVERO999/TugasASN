@@ -576,10 +576,19 @@ if selected == "HRV Analysis":
             )
             st.plotly_chart(fig)
             
-            fig = go.Figure()
-            fig.add_trace(go.Histogram(x=bpm_rr, nbinsx=ptp))
-            fig.update_layout(title='Histogram', xaxis_title='BPM', yaxis_title='Frequency')
-            fig.update_layout(xaxis=dict(range=[0, 100]), yaxis=dict(range=[0, 10]))
+             fig = go.Figure(data=go.Histogram(x=bpm_rr, nbinsx=ptp))
+            
+            fig.update_layout(
+                title="Histogram Interval RR",
+                xaxis_title="Interval RR",
+                yaxis_title="Banyak Data",
+                xaxis=dict(showline=True, showgrid=True),
+                yaxis=dict(showline=True, showgrid=True),
+                bargap=0.2, # Optional: Adjusts the gap between bars
+                bargroupgap=0.1, # Optional: Adjusts the gap between groups
+            )
+
+
             st.plotly_chart(fig)
 
 
@@ -1060,7 +1069,7 @@ if selected == "HRV Analysis":
                 
                     # Plot Poincaré Plot
                     plt.figure(figsize=(6, 6))
-                    plt.scatter(x, y, s=5, c='blue', alpha=0.5)
+                    plt.scatter(x, y, s=5, c='green', alpha=0.5)
                     plt.title('Poincaré Plot of RR Intervals')
                     plt.xlabel('RR(n) * 1000')
                     plt.ylabel('RR(n+1) * 1000')
