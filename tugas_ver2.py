@@ -529,7 +529,7 @@ if selected == "HRV Analysis":
         new_title = '<p style="font-family:Georgia; color:black; font-size: 25px; text-align: center;">Time Domain Analysis</p>'
         st.markdown(new_title, unsafe_allow_html=True)
         selected2 = option_menu(None, ["Result", "Information"], 
-            menu_icon="cast", default_index=0, orientation="horizontal")
+            menu_icon="cast", default_index=0, orientation="horizontal")'
         if selected2 == "Result":
 
             new_title = '<p style="font-family:Georgia; color: black; font-size: 18px;">Statistical measures</p>'
@@ -564,6 +564,16 @@ if selected == "HRV Analysis":
             )
 
         
+            st.plotly_chart(fig)
+            
+            fig = go.Figure(data=go.Scatter(x=n, y=bpm_rr, mode='lines'))
+            fig.update_layout(
+                title="TACHOGRAM",
+                xaxis_title="n",
+                yaxis_title="BPM",
+                xaxis=dict(showline=True, showgrid=True),
+                yaxis=dict(showline=True, showgrid=True)
+            )
             st.plotly_chart(fig)
 
 
@@ -603,15 +613,7 @@ if selected == "HRV Analysis":
             )
             st.plotly_chart(fig)
             
-            fig = go.Figure(data=go.Scatter(x=n, y=bpm_rr, mode='lines'))
-            fig.update_layout(
-                title="TACHOGRAM",
-                xaxis_title="n",
-                yaxis_title="BPM",
-                xaxis=dict(showline=True, showgrid=True),
-                yaxis=dict(showline=True, showgrid=True)
-            )
-            st.plotly_chart(fig)
+
             
         elif selected3 == 'Segmentation':
              optimizer_options3 = ['', 'Data 0-50', 'Data 50-100', 'Data 101-151', 'Data 151-201','Data 201-251','Data 251-301','Data 301-351','FFT TOTAL']
