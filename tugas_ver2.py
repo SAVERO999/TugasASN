@@ -529,7 +529,7 @@ if selected == "HRV Analysis":
         new_title = '<p style="font-family:Georgia; color:black; font-size: 25px; text-align: center;">Time Domain Analysis</p>'
         st.markdown(new_title, unsafe_allow_html=True)
         selected2 = option_menu(None, ["Result", "Information"], 
-            menu_icon="cast", default_index=0, orientation="horizontal")'
+            menu_icon="cast", default_index=0, orientation="horizontal")
         if selected2 == "Result":
 
             new_title = '<p style="font-family:Georgia; color: black; font-size: 18px;">Statistical measures</p>'
