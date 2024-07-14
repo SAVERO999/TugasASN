@@ -326,30 +326,7 @@ if selected == "Home":
    new_title = '<p style="font-family:Georgia; color: black; font-size: 15px;">Reynard Prastya Savero - 5023211042</p>'
    st.markdown(new_title, unsafe_allow_html=True)
    st_lottie("https://assets5.lottiefiles.com/packages/lf20_V9t630.json", height=400, width=400)
-  import base64
-  import streamlit as st
-  from st_clickable_images import clickable_images
 
-# Daftar nama file gambar yang akan digunakan
-  image_files = ["download (1).jpeg", "image2.jpeg"]
-
-# List untuk menyimpan gambar yang telah dikodekan ke Base64
-  images = []
-  for file in image_files:
-  with open(file, "rb") as image:
-     encoded = base64.b64encode(image.read()).decode()
-     images.append(f"data:image/jpeg;base64,{encoded}")
-
-# Menampilkan gambar yang bisa diklik
-  clicked = clickable_images(
-  images,
-  titles=[f"Image #{str(i)}" for i in range(len(images))],
-  div_style={"display": "flex", "justify-content": "center", "flex-wrap": "wrap"},
-  img_style={"margin": "5px", "height": "200px"},
-  )
-
-# Menampilkan hasil klik
-  st.markdown(f"Image #{clicked} clicked" if clicked > -1 else "No image clicked")
 
 
 if selected == "Encyclopedia":
